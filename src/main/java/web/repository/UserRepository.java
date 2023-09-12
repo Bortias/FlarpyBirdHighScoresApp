@@ -1,4 +1,4 @@
 package web.repository;
 
-public class UserRepository {
+public interface UserRepository {
 }
