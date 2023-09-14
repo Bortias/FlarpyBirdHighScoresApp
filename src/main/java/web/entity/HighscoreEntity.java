@@ -1,9 +1,6 @@
 package web.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
@@ -11,19 +8,22 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 import java.util.Date;
 import java.util.UUID;
 
-@Entity
+@Entity(name = "highscores")
 @Data
 //@NoArgsConstructor
 //@AllArgsConstructor
 public class HighscoreEntity {
 
     @Id
+    @Column(name = "uuid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID highscoreId;
 
     private int value;
 
+    @Column(name = "creation_date")
     private Date dateCreated;
 
+    @Column(name = "user_id")
     private String user;
 }
