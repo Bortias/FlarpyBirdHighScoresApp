@@ -3,7 +3,6 @@ package web.service;
 import web.dto.HighscoreDto;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface HighscoreService {
 
@@ -11,5 +10,5 @@ public interface HighscoreService {
 
     HighscoreDto saveHighscore(HighscoreDto highscoreDto);
 
-    boolean deleteHighscore(UUID highscoreId);
+    boolean deleteHighscore(String highscoreId);
 }

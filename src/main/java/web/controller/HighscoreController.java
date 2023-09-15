@@ -7,7 +7,6 @@ import web.dto.HighscoreDto;
 import web.service.HighscoreServiceImpl;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class HighscoreController {
@@ -27,7 +26,7 @@ public class HighscoreController {
 
     @DeleteMapping(value = "/highscore", produces = "application/json")
     public ResponseEntity<String> deleteHighscore(@RequestParam String highscoreId) {
-        highscoreService.deleteHighscore(UUID.fromString(highscoreId));
+        highscoreService.deleteHighscore(highscoreId);
         return ResponseEntity.noContent().build();
     }
 }

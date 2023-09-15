@@ -17,9 +17,6 @@ public class HighscoreServiceImpl implements HighscoreService{
     @Autowired
     HighscoreRepository highscoreRepository;
 
-//    @Autowired
-//    HighscoreMapper mapper;
-
     public List<HighscoreDto> getAllHighscores(){
         return HighscoreMapper.INSTANCE.entityToDto(highscoreRepository.findByOrderByValueDesc());
     }
@@ -28,9 +25,9 @@ public class HighscoreServiceImpl implements HighscoreService{
         return HighscoreMapper.INSTANCE.entityToDto(highscoreRepository.save(HighscoreMapper.INSTANCE.dtoToEntity(dto)));
     }
 
-    public boolean deleteHighscore(UUID highscoreId){
+    public boolean deleteHighscore(String highscoreId){
         try{
-            highscoreRepository.deleteById(highscoreId);
+            highscoreRepository.deleteById(UUID.fromString(highscoreId));
             return true;
         }catch(Exception e){
             log.error(e.getLocalizedMessage());

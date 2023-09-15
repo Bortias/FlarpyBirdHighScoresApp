@@ -10,8 +10,6 @@ import java.util.UUID;
 
 @Entity(name = "highscores")
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class HighscoreEntity {
 
     @Id
