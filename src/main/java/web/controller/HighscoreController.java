@@ -24,8 +24,8 @@ public class HighscoreController {
         return ResponseEntity.ok(highscoreService.saveHighscore(highscoreDto));
     }
 
-    @DeleteMapping(value = "/highscore", produces = "application/json")
-    public ResponseEntity<String> deleteHighscore(@RequestParam String highscoreId) {
+    @DeleteMapping(value = "/highscore", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> deleteHighscore(@RequestBody String highscoreId) {
         highscoreService.deleteHighscore(highscoreId);
         return ResponseEntity.noContent().build();
     }

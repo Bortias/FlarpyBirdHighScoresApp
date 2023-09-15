@@ -12,24 +12,24 @@ import java.util.UUID;
 
 @Service
 @Slf4j
-public class HighscoreServiceImpl implements HighscoreService{
+public class HighscoreServiceImpl implements HighscoreService {
 
     @Autowired
     HighscoreRepository highscoreRepository;
 
-    public List<HighscoreDto> getAllHighscores(){
+    public List<HighscoreDto> getAllHighscores() {
         return HighscoreMapper.INSTANCE.entityToDto(highscoreRepository.findByOrderByValueDesc());
     }
 
-    public HighscoreDto saveHighscore(HighscoreDto dto){
+    public HighscoreDto saveHighscore(HighscoreDto dto) {
         return HighscoreMapper.INSTANCE.entityToDto(highscoreRepository.save(HighscoreMapper.INSTANCE.dtoToEntity(dto)));
     }
 
-    public boolean deleteHighscore(String highscoreId){
-        try{
+    public boolean deleteHighscore(String highscoreId) {
+        try {
             highscoreRepository.deleteById(UUID.fromString(highscoreId));
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             log.error(e.getLocalizedMessage());
             return false;
         }
